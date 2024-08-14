@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.css";
+import { useState, useEffect } from "react";
+import { useProducts } from "./useProducts";
 
 function App() {
+  const { data, loading, error } = useProducts();
+  console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {data &&
+        data.map((item, id) => (
+          <div key={id}>
+            <p>{item.name}</p>
+            <p>{item.category}</p>
+            <p>{item.device}</p>
+            <p>{item.price}</p>
+            <p>{item.special ? "true" : "false"}</p>
+
+            <img src={"../images/" + item.image + ".webp"} alt={item.image} />
+          </div>
+        ))}
+    </>
   );
 }
 
