@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import App from "./App";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -11,7 +13,9 @@ root.render(
       <Routes>
         <Route index element={<App />} />
         <Route path="/App" element={<App />} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/pages/Product" element={<Product />} />
+        <Route path="/pages/Cart" element={<Cart />} />
+
         {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
     </BrowserRouter>

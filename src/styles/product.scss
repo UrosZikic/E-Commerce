@@ -1,0 +1,26 @@
+.productContainer {
+  max-width: 100rem !important;
+  margin: 10rem auto;
+  .productLeft,
+  .productRight {
+    width: 100%;
+    max-width: 50rem;
+  }
+  .productLeft,
+  .productRight {
+    p,
+    button {
+      font-size: 1.8rem;
+      word-wrap: break-word;
+    }
+    button {
+      padding: 0.5rem 1rem;
+    }
+  }
+  div {
+    justify-content: center;
+  }
+  p {
+    color: white;
+  }
+}

@@ -1,0 +1,28 @@
+.productContainer {
+  max-width: 100rem !important;
+  margin: 10rem auto;
+}
+.productContainer .productLeft,
+.productContainer .productRight {
+  width: 100%;
+  max-width: 50rem;
+}
+.productContainer .productLeft p,
+.productContainer .productLeft button,
+.productContainer .productRight p,
+.productContainer .productRight button {
+  font-size: 1.8rem;
+  word-wrap: break-word;
+}
+.productContainer .productLeft button,
+.productContainer .productRight button {
+  padding: 0.5rem 1rem;
+}
+.productContainer div {
+  justify-content: center;
+}
+.productContainer p {
+  color: white;
+}
+
+/*# sourceMappingURL=product.css.map */

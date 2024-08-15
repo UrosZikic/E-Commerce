@@ -1,14 +1,15 @@
 import "./styles/App.css";
 import { useState, useEffect } from "react";
 import { useProducts } from "./useProducts";
+import Nav from "./components/nav.js";
 
 function App() {
   const { data, loading, error } = useProducts();
-  console.log(data);
 
   return (
     <>
-      {data &&
+      <Nav data={data} />
+      {/* {data &&
         data.map((item, id) => (
           <div key={id}>
             <p>{item.name}</p>
@@ -19,7 +20,7 @@ function App() {
 
             <img src={"../images/" + item.image + ".webp"} alt={item.image} />
           </div>
-        ))}
+        ))} */}
     </>
   );
 }
