@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/nav.css";
+import IonIcon from "@reacticons/ionicons";
 
 export default function Nav({ data }) {
   const [results, setResults] = useState([]);
@@ -22,6 +23,9 @@ export default function Nav({ data }) {
   return (
     <nav className="defaultWidth">
       <p>LOGO</p>
+      <a href="/pages/Cart">
+        <IonIcon className="cart_icon" name="bag-outline" />
+      </a>
       <div className="defaultWidth defaultFlex flexColumn">
         <input
           type="text"

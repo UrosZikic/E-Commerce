@@ -22,6 +22,12 @@ html {
 .flexJustifyCenter {
   justify-content: center;
 }
+.flexJustifyStart {
+  justify-content: start;
+}
+.flexJustifyEnd {
+  justify-content: end;
+}
 .flexJustifyBetween {
   justify-content: space-between;
 }
@@ -31,9 +37,9 @@ html {
 .flexAlignCenter {
   align-items: center;
 }
-.flexAlignTop {
-  align-items: top;
+.flexAlignStart {
+  align-items: start;
 }
-.flexAlignBottom {
-  align-items: bottom;
+.flexAlignEnd {
+  align-items: end;
 }

@@ -1,0 +1,43 @@
+.cartContainer {
+  max-width: 80rem !important;
+  margin: 10rem auto;
+  gap: 1rem;
+}
+.cartContainer .cartedProduct {
+  border: 1px solid white;
+}
+.cartContainer .cartedProduct img {
+  width: 100%;
+  max-width: 30rem;
+}
+.cartContainer .cartedProduct p,
+.cartContainer .cartedProduct .categoryIcon {
+  color: white;
+  font-size: 1.8rem;
+}
+.cartContainer .cartedProduct .cartedProductRight {
+  width: 100%;
+  padding: 1rem;
+}
+.cartContainer .cartedProduct .cartedProductRight select {
+  width: 15rem;
+}
+.cartContainer .cartedProduct .cartedProductRight p {
+  font-size: 1.6rem;
+}
+.cartContainer .cartedProduct .cartedProductRight .cartCommands {
+  gap: 0.5rem;
+}
+.cartContainer .cartedProduct .cartedProductRight .cartCommands button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+}
+.cartContainer .cartedProduct .cartedProductRight .cartCommands p {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/*# sourceMappingURL=cart.css.map */

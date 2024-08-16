@@ -1,0 +1,49 @@
+$font-size: 1.8rem;
+
+.cartContainer {
+  max-width: 80rem !important;
+  margin: 10rem auto;
+
+  gap: 1rem;
+  .cartedProduct {
+    border: 1px solid white;
+    img {
+      width: 100%;
+      max-width: 30rem;
+    }
+
+    p,
+    .categoryIcon {
+      color: white;
+      font-size: $font-size;
+    }
+
+    .cartedProductRight {
+      width: 100%;
+      padding: 1rem;
+
+      select {
+        width: 15rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+
+      .cartCommands {
+        gap: 0.5rem;
+        button {
+          background-color: transparent;
+          color: white;
+          border: none;
+          padding: 0;
+          font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica,
+            sans-serif;
+        }
+        p {
+          font-size: $font-size;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

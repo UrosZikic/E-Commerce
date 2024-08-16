@@ -9,6 +9,9 @@ nav p {
   font-size: 2.2rem;
   font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
 }
+nav .cart_icon {
+  font-size: 3rem;
+}
 nav div {
   position: relative;
 }

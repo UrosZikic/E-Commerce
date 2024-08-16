@@ -5,7 +5,6 @@ export function useCart(product) {
     const cartCurrent = localStorage.getItem("cart");
     return cartCurrent ? JSON.parse(cartCurrent) : [];
   });
-
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -13,5 +12,11 @@ export function useCart(product) {
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
   };
-  return { cart, addToCart };
+  const removeFromCart = (id) => {
+    setCart((prevCart) => {
+      const currentCart = prevCart;
+      return currentCart.filter((productName, productId) => productId !== id);
+    });
+  };
+  return { cart, addToCart, removeFromCart };
 }

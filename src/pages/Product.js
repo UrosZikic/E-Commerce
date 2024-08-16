@@ -7,7 +7,6 @@ import { useCart } from "../useCart";
 export default function Product() {
   const { data, loading, error } = useProducts();
   const { cart, addToCart } = useCart();
-  console.log(data && data[0]);
   const curUrl = window.location.href;
   const urlObj = new URL(curUrl);
   const pageValue = urlObj.searchParams.get("id");
