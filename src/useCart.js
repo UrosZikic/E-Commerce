@@ -13,10 +13,9 @@ export function useCart(product) {
     setCart((prevCart) => [...prevCart, product]);
   };
   const removeFromCart = (id) => {
-    setCart((prevCart) => {
-      const currentCart = prevCart;
-      return currentCart.filter((productName, productId) => productId !== id);
-    });
+    setCart((prevCart) =>
+      prevCart.filter((productName, productId) => productId !== id)
+    );
   };
   return { cart, addToCart, removeFromCart };
 }

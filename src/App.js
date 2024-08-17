@@ -2,6 +2,7 @@ import "./styles/App.css";
 import { useState, useEffect } from "react";
 import { useProducts } from "./useProducts";
 import Nav from "./components/nav.js";
+import { Pagination } from "antd";
 
 function App() {
   const { data, loading, error } = useProducts();
@@ -21,8 +22,11 @@ function App() {
             <img src={"../images/" + item.image + ".webp"} alt={item.image} />
           </div>
         ))} */}
+      <Pag />
     </>
   );
 }
-
+const Pag = () => (
+  <Pagination defaultCurrent={1} total={90} showSizeChanger={false} />
+);
 export default App;

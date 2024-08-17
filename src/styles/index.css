@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #171a21;
+  background-color: #171a21 !important;
   font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
 }
 html {
@@ -42,4 +42,14 @@ html {
 }
 .flexAlignEnd {
   align-items: end;
+}
+a,
+p,
+button {
+  color: white !important;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+button {
+  border: 1px solid white;
 }
