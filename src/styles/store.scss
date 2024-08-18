@@ -1,0 +1,22 @@
+.storeContainer {
+  gap: 0.5rem;
+  margin: 5rem auto;
+  .storeProductContainer {
+    width: 100%;
+    border: 1px solid white;
+    img {
+      width: 100%;
+    }
+    div {
+      border: 1px solid white;
+
+      p {
+        color: white;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+.noShow {
+  display: none !important;
+}

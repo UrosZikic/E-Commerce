@@ -13,32 +13,48 @@ nav .cart_icon {
   font-size: 3rem;
 }
 nav div {
+  width: 100%;
+  max-width: 53rem;
+}
+nav div .magnifier {
+  right: 10rem;
+  top: 0.5rem;
+  color: black;
+  font-size: 2.5rem;
+}
+nav div .dropDownComponent {
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+nav div div {
   position: relative;
 }
-nav div input {
+nav div div input {
   max-width: 50rem !important;
   padding: 0.75rem 1rem;
+  outline: none;
 }
-nav div .resultSuggestContainer {
+nav div div .resultSuggestContainer {
   max-width: 52rem !important;
   position: absolute;
   top: 4rem;
   left: 50%;
   transform: translateX(-50%);
 }
-nav div .resultSuggestContainer div {
+nav div div .resultSuggestContainer div {
   background-color: rgba(0, 0, 0, 0.7);
 }
-nav div .resultSuggestContainer div a {
+nav div div .resultSuggestContainer div a {
   text-decoration: none;
   gap: 1rem;
 }
-nav div .resultSuggestContainer div a img {
+nav div div .resultSuggestContainer div a img {
   width: 10rem;
   height: 5rem;
   object-fit: contain;
 }
-nav div .resultSuggestContainer div a p {
+nav div div .resultSuggestContainer div a p {
   margin: 0;
   color: white;
   font-size: 1.8rem;

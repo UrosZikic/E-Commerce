@@ -43,13 +43,35 @@ html {
 .flexAlignEnd {
   align-items: end;
 }
+.defaultGrid {
+  display: grid;
+}
+.gridTemplateColumns {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.alignSelfCenter {
+  align-self: center;
+}
+.justifySelfCenter {
+  justify-self: center;
+}
+.positionRelative {
+  position: relative;
+}
+.positionAbsolute {
+  position: absolute;
+}
+
 a,
 p,
 button {
-  color: white !important;
   text-decoration: none;
   font-size: 1.8rem;
 }
+.paginationLink {
+  color: lightblue !important;
+}
+
 button {
   border: 1px solid white;
 }

@@ -13,35 +13,51 @@ nav {
   .cart_icon {
     font-size: 3rem;
   }
-
   div {
-    position: relative;
-    input {
-      max-width: 50rem !important;
-      padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: 53rem;
+    .magnifier {
+      right: 10rem;
+      top: 0.5rem;
+      color: black;
+      font-size: 2.5rem;
     }
-    .resultSuggestContainer {
-      max-width: 52rem !important;
-      position: absolute;
-      top: 4rem;
-      left: 50%;
-      transform: translateX(-50%);
 
-      div {
-        background-color: rgba(0, 0, 0, 0.7);
-        a {
-          text-decoration: none;
-          gap: 1rem;
+    .dropDownComponent {
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+    div {
+      position: relative;
+      input {
+        max-width: 50rem !important;
+        padding: 0.75rem 1rem;
+        outline: none;
+      }
+      .resultSuggestContainer {
+        max-width: 52rem !important;
+        position: absolute;
+        top: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
 
-          img {
-            width: 10rem;
-            height: 5rem;
-            object-fit: contain;
-          }
-          p {
-            margin: 0;
-            color: white;
-            font-size: 1.8rem;
+        div {
+          background-color: rgba(0, 0, 0, 0.7);
+          a {
+            text-decoration: none;
+            gap: 1rem;
+
+            img {
+              width: 10rem;
+              height: 5rem;
+              object-fit: contain;
+            }
+            p {
+              margin: 0;
+              color: white;
+              font-size: 1.8rem;
+            }
           }
         }
       }
