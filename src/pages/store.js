@@ -3,6 +3,7 @@ import { useProducts } from "../useProducts";
 import { Pagination } from "antd";
 import "../styles/store.css";
 import { useState, useEffect } from "react";
+import { input, menu } from "@nextui-org/theme";
 
 export default function Store() {
   const { data, loading, error } = useProducts();
@@ -18,22 +19,31 @@ export default function Store() {
 
   useEffect(() => {
     if (categoryName) {
-      setDataDisplay(
-        () =>
-          data && data.filter((item) => item.category.includes(categoryName))
-      );
+      const collection = categoryName.split(",");
+      console.log(collection);
+      setDataDisplay(() => {
+        return (
+          data &&
+          data.filter((item) => {
+            const categories = item.category
+              .split(",")
+              .map((cat) => cat.trim());
+            return categories.some((cat) => collection.includes(cat));
+          })
+        );
+      });
     } else {
       setDataDisplay(data && data);
     }
   }, [data, categoryName]);
 
   // console.log(
-  //   data && data.filter((item) => item.category.includes(categoryName))
   // );
 
   return (
     <>
       <Nav data={data} />
+      <SortMenu />
       <div className="defaultWidth storeContainer defaultGrid gridTemplateColumns">
         {dataDisplay &&
           dataDisplay.map(
@@ -70,6 +80,99 @@ export default function Store() {
     </>
   );
 }
+
+const SortMenu = () => {
+  const [price, setPrice] = useState();
+  const [cat, setCat] = useState([]);
+  const [device, setDevice] = useState([]);
+
+  const catOptions = [
+    "Action",
+    "Adventure",
+    "Simulation",
+    "Horror",
+    "Puzzle",
+    "RPG",
+    "Sport",
+  ];
+  const devOptions = ["PC", "PS4", "XBOX", "NINTENDO"];
+
+  function handlePriceRange(e) {
+    const currentPrice = e.target.value;
+    return setPrice(currentPrice);
+  }
+  function handleCategory(e) {
+    const currentCat = e.target.name;
+    setCat((prev) => {
+      if (!prev.includes(currentCat)) {
+        return [...prev, currentCat];
+      } else {
+        return prev.filter((item) => item !== currentCat);
+      }
+    });
+  }
+
+  function handleDevice(e) {
+    const currentDev = e.target.name;
+    setDevice((prev) => {
+      if (!prev.includes(currentDev)) {
+        return [...prev, currentDev];
+      } else {
+        return prev.filter((item) => item !== currentDev);
+      }
+    });
+  }
+
+  function executeFilter() {
+    let urlBase = "/pages/store?";
+    if (cat) {
+      urlBase += "n=" + cat.join();
+    }
+    return (window.location.href = urlBase);
+  }
+
+  return (
+    <menu>
+      <div className="categoriesMenu defaultGrid gridTemplateColumnTwo">
+        {catOptions.map((item, id) => (
+          <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
+            <input
+              type="checkbox"
+              name={item !== "RPG" ? item.toLowerCase() : item}
+              onChange={handleCategory}
+            />
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+      <div className="devicesMenu defaultGrid gridTemplateColumnTwo">
+        {devOptions.map((item, id) => (
+          <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
+            <input
+              type="checkbox"
+              name={item.toLowerCase()}
+              onChange={handleDevice}
+            />
+            <p>{item}</p>
+          </div>
+        ))}
+      </div>
+      <div className="priceRange defaultGrid gridTemplateColumnTwo">
+        <input
+          type="range"
+          name="priceRange"
+          min="0"
+          max="46"
+          value={price ? price : 0}
+          step="1"
+          onChange={handlePriceRange}
+        />
+        <p>{price}</p>
+      </div>
+      <button onClick={executeFilter}>Search</button>
+    </menu>
+  );
+};
 
 const Pag = ({ pageId, dataDisplay, categoryName }) => (
   <Pagination

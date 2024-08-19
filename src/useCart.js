@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useCart(product) {
+export function useCart() {
   const [cart, setCart] = useState(() => {
     const cartCurrent = localStorage.getItem("cart");
     return cartCurrent ? JSON.parse(cartCurrent) : [];

@@ -17,8 +17,17 @@
   font-size: 1.6rem;
 }
 
-.noShow {
-  display: none !important;
+menu .categoriesMenu,
+menu .devicesMenu,
+menu .priceRange {
+  width: 100%;
+  max-width: 30rem;
+}
+menu .categoriesMenu p,
+menu .devicesMenu p,
+menu .priceRange p {
+  font-size: 1.6rem;
+  color: white;
 }
 
 /*# sourceMappingURL=store.css.map */
