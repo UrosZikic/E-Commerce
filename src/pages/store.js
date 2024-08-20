@@ -2,43 +2,88 @@ import Nav from "../components/nav";
 import { useProducts } from "../useProducts";
 import { Pagination } from "antd";
 import "../styles/store.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { input, menu } from "@nextui-org/theme";
 
 export default function Store() {
   const { data, loading, error } = useProducts();
   const [dataDisplay, setDataDisplay] = useState();
+
   const curUrl = window.location.href;
   const urlObj = new URL(curUrl);
   const pageId = parseInt(urlObj.searchParams.get("i"))
     ? parseInt(urlObj.searchParams.get("i"))
     : 1;
   const categoryName = urlObj.searchParams.get("n");
+  const deviceName = urlObj.searchParams.get("d");
+  const price = urlObj.searchParams.get("p");
+
   const startPage = [1, 13, 25, 37];
   const endPage = [12, 24, 36, 48];
 
-  useEffect(() => {
-    if (categoryName) {
-      const collection = categoryName.split(",");
-      console.log(collection);
-      setDataDisplay(() => {
-        return (
+  const filteredOut = useRef();
+
+  function filter() {
+    const collectionCat = categoryName && categoryName.split(",");
+    const collectionDev = deviceName && deviceName.split(",");
+    const collectionPrice = price && parseInt(price);
+    console.log(collectionCat, collectionDev, collectionPrice);
+
+    (function filterByCategory() {
+      if (collectionCat) {
+        filteredOut.current =
           data &&
-          data.filter((item) => {
-            const categories = item.category
+          data.filter((item) =>
+            item.category
               .split(",")
-              .map((cat) => cat.trim());
-            return categories.some((cat) => collection.includes(cat));
-          })
-        );
-      });
+              .some((i) => collectionCat.includes(i.trim()))
+          );
+      } else {
+        filteredOut.current = data;
+      }
+      function filterByDevice(filtered) {
+        if (collectionDev) {
+          const placeholder =
+            filtered &&
+            filtered.filter((item) =>
+              item.device
+                .split(",")
+                .some((i) => collectionDev.includes(i.trim()))
+            );
+          filteredOut.current = placeholder;
+          console.log(filteredOut.current, "2");
+        } else {
+          if (!collectionCat) filteredOut.current = data;
+        }
+        function filterByPrice(filtered) {
+          if (collectionPrice) {
+            const placeholder =
+              filtered &&
+              filtered.filter((item) =>
+                item.price
+                  .split(",")
+                  .some((i) => collectionPrice >= parseFloat(i))
+              );
+            filteredOut.current = placeholder;
+          }
+          console.log(filteredOut, "3");
+          return setDataDisplay(filteredOut.current);
+        }
+
+        return filterByPrice(filteredOut.current);
+      }
+      console.log(filteredOut, "1");
+      return filterByDevice(filteredOut.current);
+    })();
+  }
+
+  useEffect(() => {
+    if (categoryName || deviceName || price) {
+      filter();
     } else {
       setDataDisplay(data && data);
     }
   }, [data, categoryName]);
-
-  // console.log(
-  // );
 
   return (
     <>
@@ -76,6 +121,8 @@ export default function Store() {
         pageId={pageId}
         dataDisplay={dataDisplay}
         categoryName={categoryName}
+        deviceName={deviceName}
+        price={price}
       />
     </>
   );
@@ -95,7 +142,7 @@ const SortMenu = () => {
     "RPG",
     "Sport",
   ];
-  const devOptions = ["PC", "PS4", "XBOX", "NINTENDO"];
+  const devOptions = ["PC", "PS4", "XBOX", "nintendo"];
 
   function handlePriceRange(e) {
     const currentPrice = e.target.value;
@@ -124,9 +171,17 @@ const SortMenu = () => {
   }
 
   function executeFilter() {
-    let urlBase = "/pages/store?";
-    if (cat) {
-      urlBase += "n=" + cat.join();
+    let urlBase = "/pages/store?i=1";
+    if (cat.length < 1 && device.length < 1 && price === undefined)
+      return (window.location.href = urlBase);
+    if (cat.length >= 1) {
+      urlBase += "&n=" + cat.join();
+    }
+    if (device.length >= 1) {
+      urlBase += `&d=${device.join()}`;
+    }
+    if (price) {
+      urlBase += `&p=${price}`;
     }
     return (window.location.href = urlBase);
   }
@@ -150,7 +205,7 @@ const SortMenu = () => {
           <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
             <input
               type="checkbox"
-              name={item.toLowerCase()}
+              name={item !== "nintendo" ? item.toUpperCase() : item}
               onChange={handleDevice}
             />
             <p>{item}</p>
@@ -169,12 +224,17 @@ const SortMenu = () => {
         />
         <p>{price}</p>
       </div>
-      <button onClick={executeFilter}>Search</button>
+      <button
+        onClick={executeFilter}
+        disabled={!parseInt(price) && cat.length <= 0 && device.length <= 0}
+      >
+        Search
+      </button>
     </menu>
   );
 };
 
-const Pag = ({ pageId, dataDisplay, categoryName }) => (
+const Pag = ({ pageId, dataDisplay, categoryName, deviceName, price }) => (
   <Pagination
     className={`defaultWidth defaultFlex flexJustifyCenter ${
       dataDisplay ? (dataDisplay.length < 13 ? "noShow" : "") : ""
@@ -188,9 +248,10 @@ const Pag = ({ pageId, dataDisplay, categoryName }) => (
         return (
           <a
             href={
-              `/pages/store?` +
-              (categoryName ? `n=${categoryName}&` : "") +
-              `i=${page}`
+              `/pages/store?i=${page}` +
+              (categoryName ? `&n=${categoryName}` : "") +
+              (deviceName ? `&d=${deviceName}` : "") +
+              (price ? `&p=${price}` : "")
             }
             className={`paginationLink`}
           >
@@ -203,9 +264,10 @@ const Pag = ({ pageId, dataDisplay, categoryName }) => (
           pageId >= 2 && (
             <a
               href={
-                `/pages/store?` +
-                (categoryName ? `n=${categoryName}&` : "") +
-                `i=${pageId - 1}`
+                `/pages/store?i=${pageId - 1}` +
+                (categoryName ? `&n=${categoryName}` : "") +
+                (deviceName ? `&d=${deviceName}` : "") +
+                (price ? `&p=${price}` : "")
               }
               className="paginationLink"
               style={{ display: "block", width: "100%", height: "100%" }}
@@ -220,9 +282,10 @@ const Pag = ({ pageId, dataDisplay, categoryName }) => (
           pageId < (dataDisplay && dataDisplay.length / 12) && (
             <a
               href={
-                `/pages/store?` +
-                (categoryName ? `n=${categoryName}&` : "") +
-                `i=${pageId + 1}`
+                `/pages/store?i=${pageId + 1}` +
+                (categoryName ? `&n=${categoryName}` : "") +
+                (deviceName ? `&d=${deviceName}` : "") +
+                (price ? `&p=${price}` : "")
               }
               className="paginationLink"
               style={{ display: "block", width: "100%", height: "100%" }}
