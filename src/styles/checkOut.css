@@ -1,0 +1,14 @@
+.purchaseForm {
+  gap: 10rem;
+}
+.purchaseForm div {
+  column-gap: 1rem;
+}
+.purchaseForm div div {
+  width: 100%;
+}
+.purchaseForm div div label {
+  color: white;
+}
+
+/*# sourceMappingURL=checkOut.css.map */

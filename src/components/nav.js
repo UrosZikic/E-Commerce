@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useStored } from "../useStored";
+
 import "../styles/nav.css";
 import { Button, Dropdown, Space } from "antd";
 import IonIcon from "@reacticons/ionicons";
@@ -63,12 +65,15 @@ const items = [
 ];
 
 export default function Nav({ data }) {
+  const { stored } = useStored();
+
   return (
     <nav className="defaultWidth">
       <p>LOGO</p>
       <a href="/pages/Cart">
         <IonIcon className="cart_icon" name="bag-outline" />
       </a>
+      <p>{stored.length}</p>
       <div className="positionRelative searchContainer">
         <SearchBar data={data} />
         <IonIcon

@@ -2,6 +2,7 @@ import Nav from "../components/nav";
 import { filter } from "../filter";
 import SortMenu from "../components/SortMenu";
 import ListProducts from "../components/ListProducts";
+
 import Pag from "../components/Pag";
 import { useProducts } from "../useProducts";
 import "../styles/store.css";

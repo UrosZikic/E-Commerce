@@ -1,3 +1,5 @@
+$primaryColor: #171a21;
+
 .storeContainer {
   gap: 0.5rem;
   margin: 5rem auto;
@@ -31,4 +33,15 @@ menu {
       color: white;
     }
   }
+}
+
+.sortProductContainer {
+  transition: all 1s;
+  background-color: $primaryColor;
+}
+.load {
+  transform: translateX(0%);
+}
+.unLoad {
+  transform: translateX(-100%);
 }

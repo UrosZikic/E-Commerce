@@ -30,4 +30,17 @@ menu .priceRange p {
   color: white;
 }
 
+.sortProductContainer {
+  transition: all 1s;
+  background-color: #171a21;
+}
+
+.load {
+  transform: translateX(0%);
+}
+
+.unLoad {
+  transform: translateX(-100%);
+}
+
 /*# sourceMappingURL=store.css.map */

@@ -4,6 +4,8 @@ import "./styles/index.css";
 import App from "./App";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import CheckOut from "./pages/CheckOut";
+
 import Store from "./pages/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -17,6 +19,7 @@ root.render(
         <Route path="/pages/Product" element={<Product />} />
         <Route path="/pages/Cart" element={<Cart />} />
         <Route path="/pages/Store" element={<Store />} />
+        <Route path="/pages/CheckOut" element={<CheckOut />} />
 
         {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>

@@ -4,6 +4,7 @@ export default function SortMenu() {
   const [price, setPrice] = useState();
   const [cat, setCat] = useState([]);
   const [device, setDevice] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const catOptions = [
     "Action",
@@ -59,49 +60,62 @@ export default function SortMenu() {
   }
 
   return (
-    <menu>
-      <div className="categoriesMenu defaultGrid gridTemplateColumnTwo">
-        {catOptions.map((item, id) => (
-          <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
-            <input
-              type="checkbox"
-              name={item !== "RPG" ? item.toLowerCase() : item}
-              onChange={handleCategory}
-            />
-            <p>{item}</p>
-          </div>
-        ))}
-      </div>
-      <div className="devicesMenu defaultGrid gridTemplateColumnTwo">
-        {devOptions.map((item, id) => (
-          <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
-            <input
-              type="checkbox"
-              name={item !== "nintendo" ? item.toUpperCase() : item}
-              onChange={handleDevice}
-            />
-            <p>{item}</p>
-          </div>
-        ))}
-      </div>
-      <div className="priceRange defaultGrid gridTemplateColumnTwo">
-        <input
-          type="range"
-          name="priceRange"
-          min="0"
-          max="46"
-          value={price ? price : 0}
-          step="1"
-          onChange={handlePriceRange}
-        />
-        <p>{price}</p>
-      </div>
-      <button
-        onClick={executeFilter}
-        disabled={!parseInt(price) && cat.length <= 0 && device.length <= 0}
+    <>
+      <button onClick={() => setIsOpen((prev) => !prev)}>+</button>
+
+      <menu
+        className={`sortProductContainer positionAbsolute ${
+          isOpen ? "load" : "unLoad"
+        }`}
       >
-        Search
-      </button>
-    </menu>
+        <p>Categories</p>
+
+        <div className="categoriesMenu defaultGrid gridTemplateColumnTwo">
+          {catOptions.map((item, id) => (
+            <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
+              <input
+                type="checkbox"
+                name={item !== "RPG" ? item.toLowerCase() : item}
+                onChange={handleCategory}
+              />
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+        <p>Devices</p>
+
+        <div className="devicesMenu defaultGrid gridTemplateColumnTwo">
+          {devOptions.map((item, id) => (
+            <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
+              <input
+                type="checkbox"
+                name={item !== "nintendo" ? item.toUpperCase() : item}
+                onChange={handleDevice}
+              />
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+        <p>Price</p>
+        <div className="priceRange defaultGrid gridTemplateColumnTwo">
+          <input
+            type="range"
+            name="priceRange"
+            min="0"
+            max="46"
+            value={price ? price : 0}
+            step="1"
+            onChange={handlePriceRange}
+          />
+          <p>{price}</p>
+        </div>
+        <button
+          onClick={executeFilter}
+          disabled={!parseInt(price) && cat.length <= 0 && device.length <= 0}
+        >
+          Search
+        </button>
+      </menu>
+    </>
   );
 }
