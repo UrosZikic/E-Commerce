@@ -1,0 +1,17 @@
+.slick-slide {
+  width: 100% !important;
+  max-width: 30rem;
+}
+.caroItem {
+  margin: 0 1rem;
+  padding: 0 2rem;
+}
+.slick-prev:before,
+.slick-next:before {
+  position: relative;
+  font-size: 3rem !important;
+  z-index: 999 !important;
+}
+.slick-prev:before {
+  left: -10px;
+}

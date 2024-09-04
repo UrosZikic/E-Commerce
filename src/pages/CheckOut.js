@@ -2,13 +2,18 @@ import { useState, useRef, useEffect } from "react";
 import CartProduct from "../components/CartProduct";
 import { useStored } from "../useStored";
 import { useProducts } from "../useProducts";
+import { useCart } from "../useCart";
+
 import "../styles/checkOut.css";
 import Nav from "../components/nav";
-import Cookies from "universal-cookie";
 
 export default function CheckOut() {
   const { data, loading, error } = useProducts();
   const { stored } = useStored();
+
+  const { cart, addToCart, removeFromCart } = useCart();
+  const [navCart, setNavCart] = useState(cart.length);
+  useEffect(() => setNavCart(cart.length), [cart]);
 
   const devices = {
     PC: "logo-windows",
@@ -18,7 +23,7 @@ export default function CheckOut() {
   };
   return (
     <>
-      <Nav data={data} />
+      <Nav data={data} navCart={navCart} />
       <main className="defaultDisplay defaultGrid gridTemplateColumnTwo">
         <section className="formSection">
           <FormComponent />
@@ -41,8 +46,6 @@ export default function CheckOut() {
 }
 
 const FormComponent = () => {
-  const cookies = new Cookies();
-
   const refs = {
     name: useRef(""),
     email: useRef(""),

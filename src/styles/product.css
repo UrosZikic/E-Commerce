@@ -18,6 +18,10 @@
 .productContainer .productRight button {
   padding: 0.5rem 1rem;
 }
+.productContainer .productLeft img {
+  width: 100%;
+  max-width: 45rem;
+}
 .productContainer div {
   justify-content: center;
 }

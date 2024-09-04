@@ -1,7 +1,4 @@
 nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 1rem;
   color: #c7d5e0;
 }
@@ -9,8 +6,22 @@ nav p {
   font-size: 2.2rem;
   font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
 }
-nav .cart_icon {
+nav .cart .cart_icon {
   font-size: 3rem;
+  color: white;
+}
+nav .cart .cartNumber {
+  top: -0.5rem;
+  right: -0.5rem;
+  margin: 0;
+  font-size: 1.6rem;
+  background-color: #171a21;
+  color: white;
+  border-radius: 50%;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  border: 1px solid white;
 }
 nav div {
   width: 100%;

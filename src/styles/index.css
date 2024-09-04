@@ -65,6 +65,17 @@ html {
   position: absolute;
 }
 
+h1 {
+  font-size: 3.2rem;
+}
+ul,
+ol,
+dl {
+  list-style: none;
+}
+li a {
+  color: white;
+}
 a,
 p,
 button {
