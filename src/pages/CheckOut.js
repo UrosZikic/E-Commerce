@@ -6,6 +6,7 @@ import { useCart } from "../useCart";
 
 import "../styles/checkOut.css";
 import Nav from "../components/nav";
+import Footer from "../components/footer";
 
 export default function CheckOut() {
   const { data, loading, error } = useProducts();
@@ -41,6 +42,7 @@ export default function CheckOut() {
             ))}
         </div>
       </main>
+      <Footer />
     </>
   );
 }

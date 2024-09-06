@@ -1,4 +1,6 @@
 import Nav from "../components/nav";
+import Footer from "../components/footer";
+
 import { filter } from "../filter";
 import SortMenu from "../components/SortMenu";
 import ListProducts from "../components/ListProducts";
@@ -64,6 +66,7 @@ export default function Store() {
         deviceName={deviceName}
         price={price}
       />
+      <Footer />
     </>
   );
 }

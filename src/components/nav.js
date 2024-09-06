@@ -13,9 +13,21 @@ export default function Nav({ data, navCart }) {
         <a href="/">LOGO</a>
       </p>
       <div>
-        <ul>
+        <ul
+          className="defaultFlex flexJustifyAround"
+          style={{ paddingLeft: "0" }}
+        >
+          <li>
+            <a href="/pages/store?i=1">home</a>
+          </li>
           <li>
             <a href="/pages/store?i=1">store</a>
+          </li>
+          <li>
+            <a href="/pages/store?i=1">about</a>
+          </li>
+          <li>
+            <a href="/pages/store?i=1">contact</a>
           </li>
         </ul>
         <div className="positionRelative searchContainer">

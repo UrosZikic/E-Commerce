@@ -4,6 +4,8 @@ import { useCart } from "../useCart";
 import { useState, useEffect } from "react";
 import CartProduct from "../components/CartProduct";
 import Nav from "../components/nav";
+import Footer from "../components/footer";
+
 import "../styles/cart.css";
 
 export default function Cart() {
@@ -31,6 +33,7 @@ export default function Cart() {
           ))}
         <a href="./CheckOut">Check out</a>
       </div>
+      <Footer navCart={navCart} />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import Nav from "../components/nav.js";
+import Footer from "../components/footer";
 import { useProducts } from "../useProducts";
 import { useState, useEffect } from "react";
 import "../styles/product.css";
@@ -15,9 +16,12 @@ export default function Product() {
 
   let fetchCategories =
     data && data.filter((data, id) => data.id === pageValue && data.category);
+  let fetchDevices =
+    data && data.filter((data, id) => data.id === pageValue && data.device);
+
   let separateCategories =
     fetchCategories && fetchCategories[0].category.split(",");
-  console.log(data && separateCategories);
+  let separateDevices = fetchCategories && fetchCategories[0].device.split(",");
 
   return (
     <>
@@ -50,11 +54,25 @@ export default function Product() {
                         </span>
                       </p>
                       <p>
+                        Available on:
+                        {separateDevices.map((dev, id) => (
+                          <span key={dev + id}>
+                            <a
+                              href={`/pages/store?i=1&d=${dev.trim()}`}
+                              style={{ color: "red" }}
+                            >
+                              {" "}
+                              {dev}
+                            </a>
+                          </span>
+                        ))}
+                      </p>
+                      <p>
                         Category:
                         {separateCategories.map((cat, id) => (
                           <span key={cat + id}>
                             <a
-                              href={`/pages/store?n=${cat.trim()}`}
+                              href={`/pages/store?i=1&n=${cat.trim()}`}
                               style={{ color: "red" }}
                             >
                               {" "}
@@ -72,6 +90,7 @@ export default function Product() {
               )
           )}
       </div>
+      <Footer />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { useCart } from "./useCart";
 
 import Nav from "./components/nav.js";
 import MainHeader from "./components/MainHeader.js";
+import Footer from "./components/footer.js";
 function App() {
   // const cookies = new Cookies();
 
@@ -18,6 +19,7 @@ function App() {
     <>
       <Nav data={data} navCart={navCart} />
       <MainHeader />
+      <Footer />
     </>
   );
 }

@@ -10,7 +10,7 @@ export default function MultipleItems() {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
   };
   return (
     <div className="slider-container defaultWidth">
@@ -31,7 +31,7 @@ export default function MultipleItems() {
                   <a href={`/pages/product?id=${item.id}`}>
                     <img
                       src={"../images/" + item.image + ".webp"}
-                      alt={item.name}
+                      alt={item.description}
                       style={{ width: "100%" }}
                     />
                     <p style={{ color: "white" }}>{item.name}</p>
