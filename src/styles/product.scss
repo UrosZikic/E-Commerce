@@ -1,6 +1,7 @@
 .productContainer {
-  max-width: 100rem !important;
+  max-width: 130rem !important;
   margin: 10rem auto;
+  background-image: url("../../public/images/Vector.webp");
   .productLeft,
   .productRight {
     width: 100%;
@@ -21,9 +22,7 @@
     width: 100%;
     max-width: 45rem;
   }
-  div {
-    justify-content: center;
-  }
+
   p {
     color: white;
   }

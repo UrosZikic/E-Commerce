@@ -1,7 +1,7 @@
 import "../styles/mainHeader.css";
-import wukongImage from "../images/topseller/wukong.webp";
-import spaceMarine from "../images/topseller/spacemarine.webp";
-import blackops from "../images/topseller/blackops.webp";
+import wukongImage from "../images/topseller/wukong_cover.webp";
+import spaceMarine from "../images/topseller/spacemarine_cover.webp";
+import blackops from "../images/topseller/blackops_cover.webp";
 import IonIcon from "@reacticons/ionicons";
 import MultipleItems from "../components/carousel";
 import UpComing from "../components/upcoming";

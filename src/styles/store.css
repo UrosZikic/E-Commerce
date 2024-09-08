@@ -16,18 +16,45 @@
   color: white;
   font-size: 1.6rem;
 }
+.storeContainer .storeProductContainer div .price {
+  left: 5px;
+  top: -10px;
+  padding: 0.25rem 0.5rem;
+  background-color: black;
+}
 
-menu .categoriesMenu,
-menu .devicesMenu,
-menu .priceRange {
+.sortMenuContainer {
+  position: relative;
+  top: 4rem;
+}
+.sortMenuContainer .sortBtn,
+.sortMenuContainer .sortOutBtn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.sortMenuContainer menu p {
+  font-size: 1.8rem;
+  color: white;
+}
+.sortMenuContainer menu .categoriesMenu,
+.sortMenuContainer menu .devicesMenu,
+.sortMenuContainer menu .priceRange {
   width: 100%;
   max-width: 30rem;
+  gap: 1rem;
 }
-menu .categoriesMenu p,
-menu .devicesMenu p,
-menu .priceRange p {
-  font-size: 1.6rem;
+.sortMenuContainer menu .categoriesMenu label,
+.sortMenuContainer menu .devicesMenu label,
+.sortMenuContainer menu .priceRange label {
   color: white;
+  font-size: 1.7rem;
+}
+.sortMenuContainer .sortOutBtn {
+  margin-top: 1rem;
 }
 
 .sortProductContainer {

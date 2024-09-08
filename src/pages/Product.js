@@ -31,7 +31,7 @@ export default function Product() {
           data.map(
             (data, id) =>
               data.id === pageValue && (
-                <div key={data.name} className="defaultFlex">
+                <div key={data.name} className="defaultFlex flexJustifyAround">
                   <div className="productLeft">
                     <img
                       src={"../images/" + data.image + ".webp"}
@@ -44,11 +44,13 @@ export default function Product() {
                     <div>
                       <p>
                         <span>
+                          Price:
                           <a
                             href={`/pages/store?i=1&p=${Math.ceil(
                               parseFloat(data.price)
                             )}`}
                           >
+                            {" "}
                             ${data.price}
                           </a>
                         </span>
@@ -85,6 +87,29 @@ export default function Product() {
                     <button onClick={() => addToCart(parseInt(data.id))}>
                       Add to cart
                     </button>
+                    <div style={{ marginTop: "4.5rem" }}>
+                      <p style={{ fontSize: "1.7rem" }}>
+                        <strong style={{ fontWeight: "400" }}>
+                          Gameplay:{" "}
+                        </strong>
+                        Immersive mechanics, diverse challenges, and endless
+                        entertainment for players.
+                      </p>
+                      <p style={{ fontSize: "1.7rem" }}>
+                        <strong style={{ fontWeight: "400" }}>
+                          Graphics:{" "}
+                        </strong>
+                        Stunning visuals with lifelike detail, enhancing
+                        immersion and visual delight.
+                      </p>
+                      <p style={{ fontSize: "1.7rem" }}>
+                        <strong style={{ fontWeight: "400" }}>
+                          Replay value:{" "}
+                        </strong>
+                        Dynamic content ensures hours of enjoyment, with
+                        captivating storylines.
+                      </p>
+                    </div>
                   </div>
                 </div>
               )

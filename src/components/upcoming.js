@@ -7,7 +7,8 @@ export default function UpComing() {
       <div style={{ width: "100%", maxWidth: "46rem" }}>
         <img src="../images/frost_punk_2.webp" alt="frost punk 2" />
         <p style={{ color: "white" }}>
-          <p>Upcoming: Frost Punk 2</p>
+          <span>Upcoming: Frost Punk 2</span>
+          <br />
           Develop, expand, and advance your city in a society survival game set
           30 years after an apocalyptic blizzard ravaged Earth. In Frostpunk 2,
           you face not only the perils of never-ending winter, but also the
@@ -18,7 +19,8 @@ export default function UpComing() {
       <div style={{ width: "100%", maxWidth: "46rem" }}>
         <img src="../images/dune.webp" alt="dune" />
         <p style={{ color: "white" }}>
-          <p>Upcoming: Dune</p>
+          <span>Upcoming: Dune</span>
+          <br />
           Develop, expand, and advance your city in a society survival game set
           30 years after an apocalyptic blizzard ravaged Earth. In Frostpunk 2,
           you face not only the perils of never-ending winter, but also the

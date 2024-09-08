@@ -60,8 +60,10 @@ export default function SortMenu() {
   }
 
   return (
-    <>
-      <button onClick={() => setIsOpen((prev) => !prev)}>+</button>
+    <div className="sortMenuContainer">
+      <button className="sortBtn" onClick={() => setIsOpen((prev) => !prev)}>
+        Sort Products
+      </button>
 
       <menu
         className={`sortProductContainer positionAbsolute ${
@@ -75,10 +77,11 @@ export default function SortMenu() {
             <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
               <input
                 type="checkbox"
+                id={item}
                 name={item !== "RPG" ? item.toLowerCase() : item}
                 onChange={handleCategory}
               />
-              <p>{item}</p>
+              <label htmlFor={item}>{item}</label>
             </div>
           ))}
         </div>
@@ -89,10 +92,11 @@ export default function SortMenu() {
             <div key={id} style={{ gap: "0.2rem" }} className="defaultFlex">
               <input
                 type="checkbox"
+                id={item}
                 name={item !== "nintendo" ? item.toUpperCase() : item}
                 onChange={handleDevice}
               />
-              <p>{item}</p>
+              <label htmlFor={item}>{item}</label>
             </div>
           ))}
         </div>
@@ -106,16 +110,25 @@ export default function SortMenu() {
             value={price ? price : 0}
             step="1"
             onChange={handlePriceRange}
+            id="price"
           />
-          <p>{price}</p>
+          <label htmlFor="price">{price}</label>
         </div>
         <button
+          className="sortOutBtn"
           onClick={executeFilter}
           disabled={!parseInt(price) && cat.length <= 0 && device.length <= 0}
+          style={{
+            color:
+              !parseInt(price) &&
+              cat.length <= 0 &&
+              device.length <= 0 &&
+              "gray",
+          }}
         >
           Search
         </button>
       </menu>
-    </>
+    </div>
   );
 }

@@ -13,7 +13,7 @@ export default function ListProducts({
             id < endPage[pageId - 1] && (
               <div
                 key={id}
-                className="justifySelfCenter storeProductContainer"
+                className="justifySelfCenter storeProductContainer positionRelative"
                 style={{ width: "250px" }}
               >
                 <a href={`/pages/product?id=${item.id}`}>
@@ -21,12 +21,9 @@ export default function ListProducts({
                     src={"../images/" + item.image + ".webp"}
                     alt={item.name}
                   />
-                  <div
-                    className="defaultFlex flexJustifyBetween"
-                    style={{ padding: "0 0.5rem", border: "none" }}
-                  >
+                  <div style={{ padding: "0 0.5rem", border: "none" }}>
                     <p>{item.name}</p>
-                    <p>{item.price}$</p>
+                    <p className="positionAbsolute price">{item.price}$</p>
                   </div>
                 </a>
               </div>
