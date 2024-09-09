@@ -67,7 +67,7 @@ const FormComponent = () => {
     refs.date.current = new Date();
     refs.ordered.current = localStorage.getItem("cart");
     for (const value of Object.values(refs)) {
-      if (value === "") return console.log("something wrong");
+      if (value.current === "") return console.log("something wrong");
     }
 
     return (window.location.href = `http://localhost:80/index.php?name=${refs.name.current}&email=${refs.email.current}&address=${refs.address.current}&addressNumber=${refs.addressNumber.current}&city=${refs.city.current}&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${refs.date.current}`);
@@ -88,6 +88,7 @@ const FormComponent = () => {
             type="text"
             name="name"
             onChange={(e) => updateProductInfo(e, "name")}
+            required
           />
         </div>
         <div className="defaultFlex flexColumn">
@@ -96,6 +97,7 @@ const FormComponent = () => {
             type="email"
             name="email"
             onChange={(e) => updateProductInfo(e, "email")}
+            required
           />
         </div>
       </div>

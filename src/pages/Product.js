@@ -46,7 +46,7 @@ export default function Product() {
                         <span>
                           Price:
                           <a
-                            href={`/pages/store?i=1&p=${Math.ceil(
+                            href={`/pages/store?p=${Math.ceil(
                               parseFloat(data.price)
                             )}`}
                           >
@@ -60,7 +60,7 @@ export default function Product() {
                         {separateDevices.map((dev, id) => (
                           <span key={dev + id}>
                             <a
-                              href={`/pages/store?i=1&d=${dev.trim()}`}
+                              href={`/pages/store?d=${dev.trim()}`}
                               style={{ color: "red" }}
                             >
                               {" "}
@@ -74,7 +74,7 @@ export default function Product() {
                         {separateCategories.map((cat, id) => (
                           <span key={cat + id}>
                             <a
-                              href={`/pages/store?i=1&n=${cat.trim()}`}
+                              href={`/pages/store?n=${cat.trim()}`}
                               style={{ color: "red" }}
                             >
                               {" "}

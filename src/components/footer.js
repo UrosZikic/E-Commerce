@@ -1,9 +1,13 @@
 import IonIcon from "@reacticons/ionicons";
 
-export default function Footer({ navCart }) {
+export default function Footer({ navCart, dataDisplay }) {
   return (
     <footer
-      className={navCart && navCart <= 2 && "positionAbsolute"}
+      className={
+        (navCart && navCart <= 2) || (dataDisplay && dataDisplay.length <= 8)
+          ? "positionAbsolute"
+          : ""
+      }
       style={{
         backgroundColor: "black",
         padding: "5rem 0",

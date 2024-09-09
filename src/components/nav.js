@@ -39,11 +39,15 @@ export default function Nav({ data, navCart }) {
           <DropDown />
         </div>
       </div>
-
-      <a href="/pages/Cart" className="positionRelative cart">
-        <IonIcon className="cart_icon" name="bag-outline" />
-        <p className="positionAbsolute cartNumber">{navCart}</p>
-      </a>
+      <span className="defaultFlex" style={{ gap: "1rem" }}>
+        <a href="/pages/Cart" className="positionRelative cart">
+          <IonIcon className="cart_icon" name="bag-outline" />
+          <p className="positionAbsolute cartNumber">{navCart}</p>
+        </a>
+        <a href="/pages/Register">
+          <IonIcon name="person-outline" className="profile_icon" />
+        </a>
+      </span>
     </nav>
   );
 }

@@ -66,7 +66,7 @@ export default function Store() {
         deviceName={deviceName}
         price={price}
       />
-      <Footer />
+      <Footer dataDisplay={dataDisplay} />
     </>
   );
 }
