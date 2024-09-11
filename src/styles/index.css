@@ -95,3 +95,6 @@ button {
 .white {
   color: white !important;
 }
+label {
+  color: white;
+}

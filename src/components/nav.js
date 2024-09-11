@@ -7,6 +7,8 @@ import { Button, Dropdown, Space } from "antd";
 import IonIcon from "@reacticons/ionicons";
 
 export default function Nav({ data, navCart }) {
+  const profileInfo = JSON.parse(localStorage.getItem("profile"));
+
   return (
     <nav className="defaultWidth defaultFlex flexJustifyBetween flexAlignCenter">
       <p>
@@ -44,8 +46,12 @@ export default function Nav({ data, navCart }) {
           <IonIcon className="cart_icon" name="bag-outline" />
           <p className="positionAbsolute cartNumber">{navCart}</p>
         </a>
-        <a href="/pages/Register">
-          <IonIcon name="person-outline" className="profile_icon" />
+        <a href={!profileInfo ? "/pages/Register" : "/pages/Profile"}>
+          {profileInfo ? (
+            <IonIcon name="person-outline" className="profile_icon" />
+          ) : (
+            <IonIcon name="person-add-outline" className="profile_icon" />
+          )}
         </a>
       </span>
     </nav>

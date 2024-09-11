@@ -48,6 +48,8 @@ export default function CheckOut() {
 }
 
 const FormComponent = () => {
+  const retrieveProfileData = JSON.parse(localStorage.getItem("profile"));
+
   const refs = {
     name: useRef(""),
     email: useRef(""),
@@ -65,12 +67,12 @@ const FormComponent = () => {
 
   function orderProduct() {
     refs.date.current = new Date();
-    refs.ordered.current = localStorage.getItem("cart");
+    refs.ordered.current = JSON.parse(localStorage.getItem("cart"));
     for (const value of Object.values(refs)) {
       if (value.current === "") return console.log("something wrong");
     }
 
-    return (window.location.href = `http://localhost:80/index.php?name=${refs.name.current}&email=${refs.email.current}&address=${refs.address.current}&addressNumber=${refs.addressNumber.current}&city=${refs.city.current}&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${refs.date.current}`);
+    return (window.location.href = `http://localhost:80/index.php?name=${refs.name.current}&email=${refs.email.current}&address=${refs.address.current}&addressNumber=${refs.addressNumber.current}&city=${refs.city.current}&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${refs.date.current}&user_id=${retrieveProfileData.id}`);
   }
 
   return (

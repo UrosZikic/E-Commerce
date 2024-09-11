@@ -5,7 +5,6 @@ import Footer from "../components/footer";
 import { useProducts } from "../useProducts";
 import { useCart } from "../useCart";
 import { useProfiles } from "../useProfiles";
-import { button } from "@nextui-org/theme";
 
 export default function Register() {
   const { dataProfile } = useProfiles();
@@ -34,13 +33,13 @@ function Options({ handleForm, loadForm }) {
         onClick={() => handleForm(1)}
         style={{ display: loadForm === 0 ? "block" : "none" }}
       >
-        Log in
+        Register
       </button>
       <button
         onClick={() => handleForm(0)}
         style={{ display: loadForm === 1 ? "block" : "none" }}
       >
-        Register
+        Log in
       </button>
     </div>
   );
@@ -61,24 +60,34 @@ function LogIn({ dataProfile, loadForm }) {
 
   function loginConfirm(e) {
     e.preventDefault();
-    return dataProfile.map((item, id) => {
+    let confirmLogin = null;
+    let logInData = null;
+    return dataProfile.some((item, id) => {
       if (item.name === refs.name.current) {
         if (item.password === refs.password.current) {
-          setLogInSuccess(true);
+          confirmLogin = true;
+          logInData = item;
+          setLogInSuccess(confirmLogin);
+
+          return loginInitiate(confirmLogin, logInData);
         } else {
           setPassMsg("Wrong Password");
         }
       } else {
         setNameMsg("User with this username doesn't exist!");
       }
-      return loginInitiate(logInSuccess);
     });
   }
 
-  function loginInitiate(logInSuccess) {
-    if (logInSuccess) {
+  function loginInitiate(confirmLogin, logInData) {
+    const retrieveProfileData = logInData;
+    if (confirmLogin) {
       setNameMsg("");
       setPassMsg("");
+      const profileData = JSON.stringify(retrieveProfileData);
+      localStorage.setItem("profile", profileData);
+      // const userProfile = JSON.parse(localStorage.getItem("profile"));
+      window.location.href = `/pages/Profile`;
     }
   }
   return (

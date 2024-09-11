@@ -1,0 +1,20 @@
+.mainProfile {
+  margin: 10rem auto;
+}
+.mainProfile .purchaseHistoryContainer {
+  gap: 1rem;
+}
+.mainProfile .purchaseHistoryContainer img {
+  width: 100%;
+  max-width: 15rem;
+}
+.mainProfile h1,
+.mainProfile h2,
+.mainProfile p {
+  color: white;
+}
+.mainProfile button {
+  margin: 0 0.5rem;
+}
+
+/*# sourceMappingURL=profile.css.map */
