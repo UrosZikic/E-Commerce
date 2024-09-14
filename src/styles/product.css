@@ -27,4 +27,16 @@
   color: white;
 }
 
+.reviewSection {
+  width: 100%;
+  max-width: 50rem;
+}
+.reviewSection h2 {
+  font-size: 4.6rem;
+}
+.reviewSection div {
+  border: 1px solid white;
+  padding: 1rem;
+}
+
 /*# sourceMappingURL=product.css.map */

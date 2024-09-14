@@ -3,6 +3,7 @@ import CartProduct from "../components/CartProduct";
 import { useStored } from "../useStored";
 import { useProducts } from "../useProducts";
 import { useCart } from "../useCart";
+import { useOrders } from "../useOrders";
 
 import "../styles/checkOut.css";
 import Nav from "../components/nav";
@@ -48,6 +49,14 @@ export default function CheckOut() {
 }
 
 const FormComponent = () => {
+  const { orderData } = useOrders();
+  const profileId = JSON.parse(localStorage.getItem("profile"));
+  const retrieveOrders = orderData && orderData;
+  // filterOrders returns the length so it has to return +1 in the end so the new item receives a new number for the list.
+  const filterOrders =
+    retrieveOrders &&
+    retrieveOrders.filter((data) => data.user_id === profileId.id);
+
   const retrieveProfileData = JSON.parse(localStorage.getItem("profile"));
 
   const refs = {
@@ -71,8 +80,16 @@ const FormComponent = () => {
     for (const value of Object.values(refs)) {
       if (value.current === "") return console.log("something wrong");
     }
-
-    return (window.location.href = `http://localhost:80/index.php?name=${refs.name.current}&email=${refs.email.current}&address=${refs.address.current}&addressNumber=${refs.addressNumber.current}&city=${refs.city.current}&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${refs.date.current}&user_id=${retrieveProfileData.id}`);
+    localStorage.removeItem("cart");
+    return (window.location.href = `http://localhost:80/index.php?name=${
+      refs.name.current
+    }&email=${refs.email.current}&address=${
+      refs.address.current
+    }&addressNumber=${refs.addressNumber.current}&city=${
+      refs.city.current
+    }&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${
+      refs.date.current
+    }&user_id=${retrieveProfileData.id}&order_num=${filterOrders.length + 1}`);
   }
 
   return (

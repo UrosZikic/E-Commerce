@@ -149,7 +149,10 @@ function SearchBar({ data }) {
     return results;
   };
   return (
-    <div className="defaultWidth defaultFlex flexColumn">
+    <div
+      className="defaultWidth defaultFlex flexColumn"
+      style={{ zIndex: "999" }}
+    >
       <input
         type="text"
         className="defaultWidth"

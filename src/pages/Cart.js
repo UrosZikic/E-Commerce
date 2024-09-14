@@ -22,6 +22,9 @@ export default function Cart() {
     nintendo: "logo-dropbox",
   };
 
+  if (cart.length === 0) {
+    window.location.href = "http://localhost:3000";
+  }
   return (
     <>
       <Nav data={data} navCart={navCart} />

@@ -1,4 +1,5 @@
 import Nav from "../components/nav.js";
+import Reviews from "../components/Reviews.js";
 import Footer from "../components/footer";
 import { useProducts } from "../useProducts";
 import { useState, useEffect } from "react";
@@ -115,6 +116,8 @@ export default function Product() {
               )
           )}
       </div>
+
+      <Reviews pageValue={pageValue} />
       <Footer />
     </>
   );

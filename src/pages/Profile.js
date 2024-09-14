@@ -5,11 +5,16 @@ import Footer from "../components/footer";
 import { useProducts } from "../useProducts";
 import { useCart } from "../useCart";
 import { useOrders } from "../useOrders";
+import { useReviews } from "../useReviews";
 import "../styles/profile.css";
+// import { button } from "@nextui-org/theme";
 
 export default function Profile() {
+  // localStorage.removeItem("review");
+
   const { data } = useProducts();
   const { cart, addToCart, removeFromCart } = useCart();
+
   const { orderData } = useOrders();
   const [navCart, setNavCart] = useState(cart.length);
   useEffect(() => setNavCart(cart.length), [cart]);
@@ -67,7 +72,8 @@ export default function Profile() {
           {storeProfileData && (
             <div>
               <p>User id: {storeProfileData["id"]}</p>
-              <p>User name: {storeProfileData["full name"]}</p>
+              <p>Username: {storeProfileData["name"]}</p>
+              <p>User full name: {storeProfileData["full name"]}</p>
               <p>User email address: {storeProfileData["email address"]}</p>
               <p>
                 User physical address: {storeProfileData["address"]}{" "}
@@ -96,7 +102,11 @@ export default function Profile() {
         </section>
 
         {/* data = product data */}
-        <PurchasedList orderData={orderData} data={data} />
+        <PurchasedList
+          orderData={orderData}
+          data={data}
+          storeProfileData={storeProfileData}
+        />
       </main>
       <Footer />
     </>
@@ -147,7 +157,13 @@ function UpdateForm({ updateProductInfo, confirmUpdate }) {
   );
 }
 
-function PurchasedList({ orderData = [], data = [] }) {
+function PurchasedList({ orderData = [], data = [], storeProfileData }) {
+  const { reviewData } = useReviews();
+  const retrieveUserReviews =
+    reviewData &&
+    storeProfileData &&
+    reviewData.filter((item) => item.user_id === storeProfileData.id);
+
   const retrieveUserId = JSON.parse(localStorage.getItem("profile"));
 
   // Make sure retrieveUserId and orderData are valid before filtering
@@ -172,26 +188,42 @@ function PurchasedList({ orderData = [], data = [] }) {
   // Check if retrieveOrders is an array and if data exists
   if (Array.isArray(retrieveOrders) && Array.isArray(data)) {
     retrieveOrders.forEach((orderIndex) => {
-      const item = data[orderIndex - 1];
-      if (item) {
+      let isNumber;
+      if (orderIndex.includes(",")) {
+        isNumber = orderIndex.split(",");
+        isNumber.forEach((index) => {
+          const item = data[index - 1];
+          orders.push(item);
+        });
+      } else {
+        const item = data[orderIndex - 1];
         orders.push(item);
       }
     });
   }
 
-  let reviewed = [];
-
-  // Check if retrievePurchaseHistory is an array before using map
-  if (Array.isArray(retrievePurchaseHistory)) {
-    retrievePurchaseHistory.forEach((item) => {
-      reviewed.push(item.review);
-    });
+  function reviewProduct(item, id, validate) {
+    localStorage.setItem("review", [
+      storeProfileData.id,
+      id,
+      item.id,
+      validate,
+    ]);
+    window.location.href = `/pages/Product?id=${item.id}`;
   }
-
+  function openReview(item, id, validate) {
+    localStorage.setItem("review", [
+      storeProfileData.id,
+      id,
+      item.id,
+      validate,
+    ]);
+    window.location.href = `/pages/Product?id=${item.id}`;
+  }
   return (
     <div>
       <h1>Purchase History</h1>
-      {orders.length > 0 ? (
+      {orders && orders.length > 0 ? (
         orders.map((item, id) => (
           <div
             className="purchaseHistoryContainer defaultFlex"
@@ -200,8 +232,14 @@ function PurchasedList({ orderData = [], data = [] }) {
             <img src={`../images/${item.image}.webp`} alt={item.name} />
             <div className="defaultFlex flexColumn">
               <p>{item.name}</p>
-              {!reviewed[id] && (
-                <a href={`/pages/Product?id=${item.id}`}>review</a>
+              {retrieveUserReviews && !retrieveUserReviews[id].review ? (
+                <button onClick={() => reviewProduct(item, id, true)}>
+                  review
+                </button>
+              ) : (
+                <button onClick={() => openReview(item, id, false)}>
+                  See review
+                </button>
               )}
             </div>
           </div>
