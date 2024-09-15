@@ -4,13 +4,15 @@ import { useProfiles } from "../useProfiles";
 
 export default function Reviews({ pageValue }) {
   const reviewInfo = localStorage.getItem("review");
-  const convertInfo = reviewInfo.split(",");
+  const convertInfo = reviewInfo && reviewInfo.split(",");
 
   let validate =
-    convertInfo[3] === "true" && pageValue === convertInfo[2] ? true : false;
+    convertInfo && convertInfo[3] === "true" && pageValue === convertInfo[2]
+      ? true
+      : false;
   return (
-    <section className="reviews defaultWidth defaultFlex flexJustifyAround">
-      {validate && <ReviewForm convertInfo={convertInfo} />}
+    <section className="reviews defaultWidth defaultFlex flexJustifyBetween">
+      {validate ? <ReviewForm convertInfo={convertInfo} /> : <div></div>}
       <ReviewsList pageValue={pageValue} />
     </section>
   );
@@ -34,11 +36,10 @@ function ReviewForm({ convertInfo }) {
   return (
     <form action="">
       <p>Submit a review</p>
-      <input
-        type="text"
+      <textarea
         name="comment"
         onChange={(e) => updateProductInfo(e, "comment")}
-      />
+      ></textarea>
       <button onClick={submitReview}>submit review</button>
     </form>
   );
@@ -68,8 +69,7 @@ function ReviewsList({ pageValue }) {
                         parseInt(profile.id) === parseInt(item.user_id)
                     ).name}
                 </p>
-                <hr />
-                <p>{item.comment}</p>
+                <p>Review: {item.comment}</p>
               </div>
             )
         )}

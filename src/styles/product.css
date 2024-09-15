@@ -30,13 +30,35 @@
 .reviewSection {
   width: 100%;
   max-width: 50rem;
+  color: white;
 }
 .reviewSection h2 {
   font-size: 4.6rem;
+  font-weight: 300;
 }
 .reviewSection div {
   border: 1px solid white;
   padding: 1rem;
+}
+
+.reviews form {
+  width: 100%;
+  max-width: 50rem;
+}
+.reviews form p {
+  color: white;
+  font-size: 2.4rem;
+}
+.reviews form textarea {
+  width: 100%;
+  height: 20rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  outline: none;
+  border: 1px solid white;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.8rem;
 }
 
 /*# sourceMappingURL=product.css.map */

@@ -108,7 +108,7 @@ export default function Profile() {
           storeProfileData={storeProfileData}
         />
       </main>
-      <Footer />
+      <Footer dataDisplay="0" />
     </>
   );
 }
@@ -221,32 +221,34 @@ function PurchasedList({ orderData = [], data = [], storeProfileData }) {
     window.location.href = `/pages/Product?id=${item.id}`;
   }
   return (
-    <div>
+    <div className="defaultFlex flexColumn purchaseHistorySection">
       <h1>Purchase History</h1>
-      {orders && orders.length > 0 ? (
-        orders.map((item, id) => (
-          <div
-            className="purchaseHistoryContainer defaultFlex"
-            key={Math.random() * 9999}
-          >
-            <img src={`../images/${item.image}.webp`} alt={item.name} />
-            <div className="defaultFlex flexColumn">
-              <p>{item.name}</p>
-              {retrieveUserReviews && !retrieveUserReviews[id].review ? (
-                <button onClick={() => reviewProduct(item, id, true)}>
-                  review
-                </button>
-              ) : (
-                <button onClick={() => openReview(item, id, false)}>
-                  See review
-                </button>
-              )}
+      <div className="purchaseHistory">
+        {orders && orders.length > 0 ? (
+          orders.map((item, id) => (
+            <div
+              className="purchaseHistoryContainer defaultFlex"
+              key={Math.random() * 9999}
+            >
+              <img src={`../images/${item.image}.webp`} alt={item.name} />
+              <div className="defaultFlex flexColumn">
+                <p>{item.name}</p>
+                {retrieveUserReviews && !retrieveUserReviews[id].review ? (
+                  <button onClick={() => reviewProduct(item, id, true)}>
+                    review
+                  </button>
+                ) : (
+                  <button onClick={() => openReview(item, id, false)}>
+                    See review
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p>No purchases found.</p>
-      )}
+          ))
+        ) : (
+          <p>No purchases found.</p>
+        )}
+      </div>
     </div>
   );
 }

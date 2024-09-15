@@ -1,10 +1,16 @@
 .mainProfile {
   margin: 10rem auto;
 }
-.mainProfile .purchaseHistoryContainer {
+.mainProfile .purchaseHistorySection .purchaseHistory {
+  width: 100%;
+  max-width: 55rem;
+  height: 35rem;
+  overflow: scroll;
+}
+.mainProfile .purchaseHistorySection .purchaseHistory .purchaseHistoryContainer {
   gap: 1rem;
 }
-.mainProfile .purchaseHistoryContainer img {
+.mainProfile .purchaseHistorySection .purchaseHistory .purchaseHistoryContainer img {
   width: 100%;
   max-width: 15rem;
 }

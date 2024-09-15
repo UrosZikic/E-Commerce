@@ -14,6 +14,9 @@ export default function CheckOut() {
   const { stored } = useStored();
 
   const { cart, addToCart, removeFromCart } = useCart();
+
+  if (!cart.length) window.location.href = "/";
+
   const [navCart, setNavCart] = useState(cart.length);
   useEffect(() => setNavCart(cart.length), [cart]);
 
@@ -57,6 +60,19 @@ const FormComponent = () => {
     retrieveOrders &&
     retrieveOrders.filter((data) => data.user_id === profileId.id);
 
+  let getRealOrders = [];
+
+  filterOrders &&
+    filterOrders.forEach((item) => {
+      if (item.ordered.includes(",")) {
+        const splitItem = item.ordered.split(",");
+        getRealOrders = [...getRealOrders, ...splitItem];
+      } else {
+        getRealOrders = [...getRealOrders, item];
+      }
+    });
+  console.log(getRealOrders.length);
+
   const retrieveProfileData = JSON.parse(localStorage.getItem("profile"));
 
   const refs = {
@@ -73,7 +89,6 @@ const FormComponent = () => {
   function updateProductInfo(e, refName) {
     return (refs[refName].current = e.target.value);
   }
-
   function orderProduct() {
     refs.date.current = new Date();
     refs.ordered.current = JSON.parse(localStorage.getItem("cart"));
@@ -81,15 +96,7 @@ const FormComponent = () => {
       if (value.current === "") return console.log("something wrong");
     }
     localStorage.removeItem("cart");
-    return (window.location.href = `http://localhost:80/index.php?name=${
-      refs.name.current
-    }&email=${refs.email.current}&address=${
-      refs.address.current
-    }&addressNumber=${refs.addressNumber.current}&city=${
-      refs.city.current
-    }&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${
-      refs.date.current
-    }&user_id=${retrieveProfileData.id}&order_num=${filterOrders.length + 1}`);
+    return (window.location.href = `http://localhost:80/index.php?name=${refs.name.current}&email=${refs.email.current}&address=${refs.address.current}&addressNumber=${refs.addressNumber.current}&city=${refs.city.current}&number=${refs.number.current}&ordered=${refs.ordered.current}&date=${refs.date.current}&user_id=${retrieveProfileData.id}&order_num=${getRealOrders.length}`);
   }
 
   return (

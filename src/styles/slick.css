@@ -1,8 +1,3 @@
-.slick-slide {
-  width: 100% !important;
-  max-width: 30rem;
-}
-
 .caroItem {
   margin: 0 1rem;
   padding: 0 2rem;
@@ -16,7 +11,11 @@
 }
 
 .slick-prev:before {
-  left: -10px;
+  left: 15px;
+}
+
+.slick-next:before {
+  right: 15px;
 }
 
 /*# sourceMappingURL=slick.css.map */

@@ -31,11 +31,34 @@
 .reviewSection {
   width: 100%;
   max-width: 50rem;
+  color: white;
   h2 {
     font-size: 4.6rem;
+    font-weight: 300;
   }
   div {
     border: 1px solid white;
     padding: 1rem;
+  }
+}
+.reviews {
+  form {
+    width: 100%;
+    max-width: 50rem;
+    p {
+      color: white;
+      font-size: 2.4rem;
+    }
+    textarea {
+      width: 100%;
+      height: 20rem;
+      padding: 0.5rem;
+      background-color: transparent;
+      outline: none;
+      border: 1px solid white;
+      margin-bottom: 1rem;
+      color: white;
+      font-size: 1.8rem;
+    }
   }
 }
