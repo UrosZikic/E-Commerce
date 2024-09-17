@@ -11,19 +11,19 @@ import { useState, useEffect, useRef } from "react";
 const topSellers = [
   {
     name: "Black Myth: Wukong",
-    desc: "Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past.",
+    desc: "Black Myth: Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead...",
     src: wukongImage,
     hyperLink: `http://localhost:3000/pages/product?id=49`,
   },
   {
     name: "Warhammer 40,000: Space Marine 2",
-    desc: "Embody the superhuman skill and brutality of a Space Marine. Unleash deadly abilities and devastating weaponry to obliterate the relentless Tyranid swarms. Defend the Imperium in spectacular third-person action in solo or multiplayer modes.",
+    desc: "Embody the superhuman skill and brutality of a Space Marine. Unleash deadly abilities and...",
     src: spaceMarine,
     hyperLink: `http://localhost:3000/pages/product?id=50`,
   },
   {
     name: "Call of Duty®: Black Ops 6",
-    desc: "Call of Duty®: Black Ops 6 is signature Black Ops across a cinematic single-player Campaign, a best-in-class Multiplayer experience and with the epic return of Round-Based Zombies.",
+    desc: "Call of Duty®: Black Ops 6 is signature Black Ops across a cinematic single-player Campaign, a best-in-class Multiplayer experience ...",
     src: blackops,
     hyperLink: `http://localhost:3000/pages/product?id=51`,
   },

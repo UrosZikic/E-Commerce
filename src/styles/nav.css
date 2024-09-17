@@ -1,20 +1,29 @@
-nav {
-  padding: 1rem;
+.nav {
+  padding: 0rem 1rem;
   color: #c7d5e0;
+  grid-template-columns: repeat(3, 1fr);
 }
-nav p {
+.nav .logoLink img {
+  width: 100%;
+  max-width: 24rem;
+}
+.nav div .navLinkList {
+  padding: 0;
+  transform: translateX(15px);
+}
+.nav p {
   font-size: 2.2rem;
   font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
 }
-nav .profile_icon {
+.nav .profile_icon {
   font-size: 3rem;
   color: white;
 }
-nav .cart .cart_icon {
+.nav .cart .cart_icon {
   font-size: 3rem;
   color: white;
 }
-nav .cart .cartNumber {
+.nav .cart .cartNumber {
   top: -0.5rem;
   right: -0.5rem;
   margin: 0;
@@ -27,54 +36,88 @@ nav .cart .cartNumber {
   text-align: center;
   border: 1px solid white;
 }
-nav div {
+.nav div {
   width: 100%;
   max-width: 53rem;
 }
-nav div .magnifier {
-  right: 10rem;
+.nav div .magnifier {
+  right: 8rem;
   top: 0.5rem;
   color: black;
   font-size: 2.5rem;
   z-index: 9999;
+  display: none !important;
 }
-nav div .dropDownComponent {
+.nav div .dropDownComponent {
   height: 100%;
   top: 0;
-  right: 0;
+  width: 12rem;
+  right: -30px;
   z-index: 9999;
 }
-nav div div {
+.nav div div {
   position: relative;
 }
-nav div div input {
+.nav div div input {
   max-width: 50rem !important;
   padding: 0.75rem 1rem;
   outline: none;
 }
-nav div div .resultSuggestContainer {
-  max-width: 52rem !important;
+.nav div div .resultSuggestContainer {
+  width: 100%;
   position: absolute;
   top: 4rem;
   left: 50%;
   transform: translateX(-50%);
 }
-nav div div .resultSuggestContainer div {
+.nav div div .resultSuggestContainer div {
   background-color: rgba(0, 0, 0, 0.7);
 }
-nav div div .resultSuggestContainer div a {
+.nav div div .resultSuggestContainer div a {
   text-decoration: none;
   gap: 1rem;
 }
-nav div div .resultSuggestContainer div a img {
+.nav div div .resultSuggestContainer div a img {
   width: 10rem;
   height: 5rem;
   object-fit: contain;
 }
-nav div div .resultSuggestContainer div a p {
+.nav div div .resultSuggestContainer div a p {
   margin: 0;
   color: white;
   font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav {
+    gap: 0;
+    padding: 0;
+  }
+  .nav .linkInputContainer {
+    grid-row: 2;
+    grid-column: 1/4;
+    justify-self: center;
+  }
+  .nav .linkInputContainer .navLinkList {
+    display: none;
+  }
+  .nav .linkInputContainer input {
+    margin: 0;
+  }
+  .nav .cartProfileContainer {
+    grid-column: 3;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .nav div .dropDownComponent {
+    right: 0px;
+  }
+  .nav .linkInputContainer {
+    justify-self: start;
+  }
+  .nav .searchContainer div {
+    width: 90%;
+  }
 }
 
 /*# sourceMappingURL=nav.css.map */

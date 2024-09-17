@@ -1,18 +1,47 @@
 .mainProfile {
   margin: 10rem auto;
   .purchaseHistorySection {
+    width: 100%;
+    max-width: 50rem;
     .purchaseHistory {
       width: 100%;
       max-width: 55rem;
-      height: 35rem;
-      overflow: scroll;
+
       .purchaseHistoryContainer {
         gap: 1rem;
+        width: 100%;
         img {
           width: 100%;
           max-width: 15rem;
+          object-fit: contain;
+          object-position: bottom;
+        }
+        div {
+          button {
+            width: 100%;
+            max-width: 12rem;
+          }
         }
       }
+    }
+    .purchaseHistory {
+      height: 100%;
+      max-height: 24rem;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+    .purchaseHistory::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    .purchaseHistory::-webkit-scrollbar-track {
+      /* color for the scroll field */
+      background: #ccc;
+    }
+
+    .purchaseHistory::-webkit-scrollbar-thumb {
+      /* Color of the scrollbar*/
+      background: #41288a;
     }
   }
 
@@ -23,5 +52,36 @@
   }
   button {
     margin: 0 0.5rem;
+  }
+}
+
+.profileForm {
+  input,
+  button {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+  button {
+    width: 100%;
+    max-width: 15rem;
+    margin: 1rem 0;
+  }
+}
+button {
+  width: 100%;
+  max-width: 17rem;
+  margin: 0 !important;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  .mainProfile {
+    flex-direction: column;
+    align-items: center;
   }
 }

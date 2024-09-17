@@ -62,3 +62,43 @@
     }
   }
 }
+
+@media only screen and (max-width: 1050px) {
+  .reviews {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .productContainer {
+    div:first-child {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0.5rem;
+    }
+  }
+  .reviews {
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 32rem;
+      textarea {
+        width: 32rem;
+      }
+      button {
+        width: 15rem;
+        align-self: flex-start;
+      }
+    }
+  }
+  .reviewSection {
+    div,
+    h2 {
+      margin: 1rem;
+    }
+  }
+}

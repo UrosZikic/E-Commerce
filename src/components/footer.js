@@ -1,27 +1,35 @@
 import IonIcon from "@reacticons/ionicons";
+import "../styles/footer.css";
 
-export default function Footer({ navCart, dataDisplay }) {
+export default function Footer({ navCart, dataDisplay, cartValidate }) {
+  const curUrl = window.location.href;
+  const urlObj = new URL(curUrl);
+
+  let posStyle;
+  if (urlObj == "http://localhost:3000/") {
+    posStyle = true;
+  }
+
   return (
     <footer
-      className={
-        (navCart && navCart <= 2) || (dataDisplay && dataDisplay.length <= 8)
+      className={`${
+        navCart === undefined ||
+        navCart <= 1 ||
+        (dataDisplay && dataDisplay.length <= 8)
           ? "positionAbsolute"
           : ""
-      }
-      style={{
-        backgroundColor: "black",
-        padding: "5rem 0",
-        marginTop: "10rem",
-        bottom: "0",
-        width: "100%",
-      }}
+      }  ${posStyle && "positionRelative"} footer`}
+      style={{ bottom: cartValidate ? "0" : "unset" }}
     >
-      <div
-        className="defaultWidth defaultFlex flexJustifyBetween"
-        style={{ maxWidth: "100rem" }}
-      >
+      <div className="defaultWidth defaultFlex flexJustifyBetween">
         <div style={{ color: "white" }}>
-          <p style={{ margin: "0" }}>Logo</p>
+          <p style={{ margin: "0" }}>
+            <img
+              style={{ width: "100%", maxWidth: "10rem" }}
+              src="../images/logo.webp"
+              alt="company logo"
+            />
+          </p>
           <p>Copy right by GameProject</p>
         </div>
         <div className="defaultFlex flexJustifyAround">

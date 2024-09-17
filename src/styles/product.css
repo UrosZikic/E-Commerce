@@ -61,4 +61,39 @@
   font-size: 1.8rem;
 }
 
+@media only screen and (max-width: 1050px) {
+  .reviews {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .productContainer div:first-child {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+  .reviews {
+    flex-direction: column;
+    align-items: center;
+  }
+  .reviews form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32rem;
+  }
+  .reviews form textarea {
+    width: 32rem;
+  }
+  .reviews form button {
+    width: 15rem;
+    align-self: flex-start;
+  }
+  .reviewSection div,
+  .reviewSection h2 {
+    margin: 1rem;
+  }
+}
+
 /*# sourceMappingURL=product.css.map */

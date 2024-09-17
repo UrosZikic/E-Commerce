@@ -40,6 +40,7 @@ $primaryColor: #171a21;
     cursor: pointer;
   }
   menu {
+    z-index: 999;
     p {
       font-size: 1.8rem;
       color: white;

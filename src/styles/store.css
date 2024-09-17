@@ -36,6 +36,9 @@
   margin-left: 1rem;
   cursor: pointer;
 }
+.sortMenuContainer menu {
+  z-index: 999;
+}
 .sortMenuContainer menu p {
   font-size: 1.8rem;
   color: white;

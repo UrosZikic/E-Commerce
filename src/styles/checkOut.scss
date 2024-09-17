@@ -3,9 +3,67 @@
     column-gap: 1rem;
     div {
       width: 100%;
+      max-width: 32rem;
       label {
         color: white;
       }
+    }
+  }
+}
+.checkOutList {
+  border: 1px solid white;
+  width: 100%;
+  max-width: 42rem;
+  height: 5rem;
+  p {
+    color: white;
+    margin: 0 1rem;
+  }
+  img {
+    width: 10rem;
+    height: 5rem;
+  }
+}
+
+.purchaseForm {
+  label {
+    font-size: 1.7rem;
+    color: white;
+    margin-top: 0.5rem;
+  }
+  .purchaseInput,
+  button {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .checkOutContainer {
+    grid-template-columns: 1fr;
+    .formSection {
+      margin-top: 10rem;
+    }
+    .cartContainer {
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .purchaseForm {
+    div {
+      flex-direction: column;
+    }
+  }
+  .checkOutList {
+    p {
+      font-size: 1.4rem;
     }
   }
 }

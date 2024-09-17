@@ -32,7 +32,10 @@ export default function Product() {
           data.map(
             (data, id) =>
               data.id === pageValue && (
-                <div key={data.name} className="defaultFlex flexJustifyAround">
+                <div
+                  key={data.name}
+                  className="defaultFlex flexJustifyAround gap-s"
+                >
                   <div className="productLeft">
                     <img
                       src={"../images/" + data.image + ".webp"}

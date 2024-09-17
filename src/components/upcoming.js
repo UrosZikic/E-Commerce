@@ -1,3 +1,5 @@
+import "../styles/upcoming.css";
+
 export default function UpComing() {
   return (
     <section

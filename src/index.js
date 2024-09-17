@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import CheckOut from "./pages/CheckOut";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Contact from "./pages/Contact";
 
 import Store from "./pages/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,6 +25,7 @@ root.render(
         <Route path="/pages/CheckOut" element={<CheckOut />} />
         <Route path="/pages/Register" element={<Register />} />
         <Route path="/pages/Profile" element={<Profile />} />
+        <Route path="/pages/Contact" element={<Contact />} />
 
         {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>

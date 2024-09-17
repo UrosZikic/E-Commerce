@@ -2,19 +2,19 @@
 //   width: 100% !important;
 //   max-width: 30rem;
 // }
-.caroItem {
-  margin: 0 1rem;
-  padding: 0 2rem;
-}
-.slick-prev:before,
-.slick-next:before {
+// .caroItem {
+//   margin: 0 1rem;
+//   padding: 0 2rem;
+// }
+.slick-prev::before,
+.slick-next::before {
   position: relative;
   font-size: 3rem !important;
+}
+.slick-prev {
+  left: 15px !important;
   z-index: 999 !important;
 }
-.slick-prev:before {
-  left: 15px;
-}
-.slick-next:before {
-  right: 15px;
+.slick-next {
+  right: 15px !important;
 }

@@ -1,0 +1,17 @@
+img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 950px) {
+  .upComing p {
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .upComing {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=upcoming.css.map */

@@ -19,6 +19,9 @@
   width: 100%;
   padding: 1rem;
 }
+.cartContainer .cartedProduct .cartedProductRight div {
+  width: 100%;
+}
 .cartContainer .cartedProduct .cartedProductRight select {
   width: 15rem;
 }
@@ -27,6 +30,7 @@
 }
 .cartContainer .cartedProduct .cartedProductRight .cartCommands {
   gap: 0.5rem;
+  width: 12rem;
 }
 .cartContainer .cartedProduct .cartedProductRight .cartCommands button {
   background-color: transparent;
@@ -38,6 +42,17 @@
 .cartContainer .cartedProduct .cartedProductRight .cartCommands p {
   font-size: 1.8rem;
   margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  footer {
+    bottom: unset !important;
+  }
+  .cartContainer .cartedProduct .cartGameImg {
+    max-width: 15rem;
+    object-fit: contain;
+    height: 100%;
+  }
 }
 
 /*# sourceMappingURL=cart.css.map */

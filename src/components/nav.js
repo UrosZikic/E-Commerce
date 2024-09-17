@@ -10,26 +10,24 @@ export default function Nav({ data, navCart }) {
   const profileInfo = JSON.parse(localStorage.getItem("profile"));
 
   return (
-    <nav className="defaultWidth defaultFlex flexJustifyBetween flexAlignCenter">
-      <p>
-        <a href="/">LOGO</a>
+    // <nav className="defaultFlex flexJustifyCenter flexAlignCenter gap-xl">
+    <nav className="defaultGrid flexJustifyCenter flexAlignCenter gap-xl nav">
+      <p className="justifySelfEnd">
+        <a href="/" className="logoLink">
+          <img src="../images/logo.webp" alt="company logo" />
+        </a>
       </p>
-      <div>
-        <ul
-          className="defaultFlex flexJustifyAround"
-          style={{ paddingLeft: "0" }}
-        >
+      <div className="linkInputContainer">
+        <ul className="defaultFlex flexJustifyAround navLinkList">
           <li>
-            <a href="/pages/store?i=1">home</a>
+            <a href="/">home</a>
           </li>
           <li>
             <a href="/pages/store?i=1">store</a>
           </li>
+
           <li>
-            <a href="/pages/store?i=1">about</a>
-          </li>
-          <li>
-            <a href="/pages/store?i=1">contact</a>
+            <a href="/pages/Contact">contact</a>
           </li>
         </ul>
         <div className="positionRelative searchContainer">
@@ -41,7 +39,7 @@ export default function Nav({ data, navCart }) {
           <DropDown />
         </div>
       </div>
-      <span className="defaultFlex" style={{ gap: "1rem" }}>
+      <span className="defaultFlex gap-sm cartProfileContainer">
         <a href="/pages/Cart" className="positionRelative cart">
           <IonIcon className="cart_icon" name="bag-outline" />
           <p className="positionAbsolute cartNumber">{navCart}</p>

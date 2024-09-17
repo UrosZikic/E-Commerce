@@ -58,11 +58,34 @@ html {
 .justifySelfCenter {
   justify-self: center;
 }
+.justifySelfEnd {
+  justify-self: end;
+}
+
+.positionAbsolute {
+  position: absolute;
+}
 .positionRelative {
   position: relative;
 }
-.positionAbsolute {
-  position: absolute;
+/* gaps */
+.gap-xl {
+  gap: 10rem;
+}
+.gap-l {
+  gap: 8rem;
+}
+.gap-lm {
+  gap: 6rem;
+}
+.gap-m {
+  gap: 4rem;
+}
+.gap-sm {
+  gap: 2rem;
+}
+.gap-s {
+  gap: 1rem;
 }
 
 h1 {

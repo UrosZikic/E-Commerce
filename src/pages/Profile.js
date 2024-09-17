@@ -36,7 +36,7 @@ export default function Profile() {
   // console.log(profileData, 23);
   delete profileData.password;
   // re-direct in case of no data
-  if (!profileData) window.location.href = "/";
+  if (!profileData) window.location.href = "/pages/Register";
   // end
 
   const refs = {
@@ -94,7 +94,7 @@ export default function Profile() {
           <button
             onClick={() => {
               localStorage.clear("profile");
-              window.location.href = "/";
+              window.location.href = "/pages/Register";
             }}
           >
             Log out
@@ -108,14 +108,14 @@ export default function Profile() {
           storeProfileData={storeProfileData}
         />
       </main>
-      <Footer dataDisplay="0" />
+      <Footer dataDisplay="0" cartValidate={false} />
     </>
   );
 }
 
 function UpdateForm({ updateProductInfo, confirmUpdate }) {
   return (
-    <form className="defaultFlex flexColumn">
+    <form className="defaultFlex flexColumn profileForm">
       <label htmlFor="fullName">Full name</label>
       <input
         type="text"

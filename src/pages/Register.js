@@ -19,10 +19,10 @@ export default function Register() {
   return (
     <>
       <Nav data={data} navCart={navCart} />
-      <Options handleForm={handleForm} loadForm={loadForm} />
       <Registration dataProfile={dataProfile} loadForm={loadForm} />;
       <LogIn dataProfile={dataProfile} loadForm={loadForm} />
-      <Footer dataDisplay="0" />
+      <Options handleForm={handleForm} loadForm={loadForm} />
+      <Footer dataDisplay="0" cartValidate={true} />
     </>
   );
 }

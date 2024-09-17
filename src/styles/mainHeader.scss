@@ -44,3 +44,19 @@
     border: none;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .mainHeader {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+@media only screen and (max-width: 400px) {
+  .mainOverLayInfo {
+    transform: translateY(-40px);
+  }
+}

@@ -12,7 +12,11 @@ export default function CartProduct({ id, item, devices }) {
   return (
     <>
       <div key={id} className="cartedProduct defaultFlex">
-        <img src={"../images/" + item.image + ".webp"} alt={item.name} />
+        <img
+          src={"../images/" + item.image + ".webp"}
+          alt={item.name}
+          className="cartGameImg"
+        />
         <div className="cartedProductRight defaultFlex flexJustifyBetween">
           <div className="defaultFlex flexColumn flexJustifyBetween">
             <div>
@@ -32,38 +36,40 @@ export default function CartProduct({ id, item, devices }) {
                 />
               </p>
             </div>
-            <select name="" id="" onChange={(value) => handleGift(value)}>
+            {/* x */}
+            <div className="defaultFlex flexColumn flexJustifyEnd flexAlignEnd">
+              <p>${item.price}</p>
+              <div className="cartCommands defaultFlex flexJustifyEnd flexAlignEnd">
+                <button
+                  style={{
+                    borderRight: "1px solid white",
+                    paddingRight: "0.5rem",
+                  }}
+                  onClick={() => {
+                    addToCart(parseInt(item.id));
+                    return (window.location.href = "/pages/cart");
+                  }}
+                >
+                  add
+                </button>
+                <button
+                  onClick={() => {
+                    removeFromCart(id);
+                    return (window.location.href = "/pages/cart");
+                  }}
+                >
+                  remove
+                </button>
+              </div>
+            </div>
+            {/* x */}
+            {/* <select name="" id="" onChange={(value) => handleGift(value)}>
               <option value="personal">For my account</option>
               <option value="gift">For a friend</option>
-            </select>
-            <button style={{ display: gift ? "block" : "none" }}>
+            </select> */}
+            {/* <button style={{ display: gift ? "block" : "none" }}>
               Select friend
-            </button>
-          </div>
-          <div className="defaultFlex flexColumn flexJustifyEnd">
-            <p>${item.price}</p>
-            <div className="cartCommands defaultFlex flexJustifyBetween flexAlignEnd">
-              <button
-                style={{
-                  borderRight: "1px solid white",
-                  paddingRight: "0.5rem",
-                }}
-                onClick={() => {
-                  addToCart(parseInt(item.id));
-                  return (window.location.href = "/pages/cart");
-                }}
-              >
-                add
-              </button>
-              <button
-                onClick={() => {
-                  removeFromCart(id);
-                  return (window.location.href = "/pages/cart");
-                }}
-              >
-                remove
-              </button>
-            </div>
+            </button> */}
           </div>
         </div>
       </div>
