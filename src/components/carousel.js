@@ -4,7 +4,8 @@ import "../styles/slick.css";
 
 export default function MultipleItems() {
   const { data } = useProducts();
-
+  const caroData = data && data;
+  console.log(caroData, 1);
   const settings = {
     dots: true,
     infinite: true,
@@ -39,24 +40,29 @@ export default function MultipleItems() {
   };
   return (
     <div className="slider-container defaultWidth">
-      <Slider {...settings}>
-        {data &&
-          data.map(
-            (item, id) =>
-              item.specials && (
-                <div className="caroItem" key={item + Math.random() * 200 + id}>
-                  <a href={`/pages/product?id=${item.id}`}>
-                    <img
-                      src={"../images/" + item.image + ".webp"}
-                      alt={item.description}
-                      style={{ width: "100%" }}
-                    />
-                    <p style={{ color: "white" }}>{item.name}</p>
-                  </a>
-                </div>
-              )
-          )}
-      </Slider>
+      <>
+        <Slider {...settings}>
+          {caroData &&
+            caroData.map(
+              (item, id) =>
+                item.specials && (
+                  <div
+                    className="caroItem"
+                    key={item + Math.random() * 200 + id}
+                  >
+                    <a href={`/pages/product?id=${item.id}`}>
+                      <img
+                        src={"../images/" + item.image + ".webp"}
+                        alt={item.description}
+                        style={{ width: "100%" }}
+                      />
+                      <p style={{ color: "white" }}>{item.name}</p>
+                    </a>
+                  </div>
+                )
+            )}
+        </Slider>
+      </>
     </div>
   );
 }

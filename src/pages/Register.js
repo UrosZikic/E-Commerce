@@ -105,7 +105,7 @@ function LogIn({ dataProfile, loadForm }) {
         <p>{nameMsg}</p>
         <label htmlFor="pass">password</label>
         <input
-          type="text"
+          type="password"
           id="pass"
           onChange={(e) => updateProductInfo(e, "password")}
         />
@@ -224,7 +224,7 @@ function Registration({ dataProfile, loadForm }) {
         <p>{userMessage}</p>
         <label htmlFor="password">Password</label>
         <input
-          type="text"
+          type="password"
           name="password"
           id="password"
           onChange={(e) => updateProductInfo(e, "password")}
@@ -232,7 +232,7 @@ function Registration({ dataProfile, loadForm }) {
         <p>{passwordMessage}</p>
         <label htmlFor="repass">Repeat password</label>
         <input
-          type="text"
+          type="password"
           name="rePass"
           id="repass"
           onChange={(e) => updateProductInfo(e, "rePass")}
